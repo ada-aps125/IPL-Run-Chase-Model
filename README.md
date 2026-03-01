@@ -118,12 +118,12 @@ metrics                = compute_metrics(pred_dist, state['target'], cond_resids
 plot_distribution(pred_dist, point_pred, state, metrics)
 ```
 
-![model-distribution-plot](image.png)
+![Predictive Distribution](assets/sample_distribution.png)
 
 ```python
 print_betting_report(point_pred, state, metrics)
 ```
-
+```
 ════════════════════════════════════════════════════
   BETTING INSIGHTS REPORT
   Mumbai Indians  chasing 175
@@ -158,7 +158,7 @@ print_betting_report(point_pred, state, metrics)
     No major risk flags at this stage
 
 ════════════════════════════════════════════════════
-
+```
 
 ---
 
