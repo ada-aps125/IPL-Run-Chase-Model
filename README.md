@@ -108,6 +108,58 @@ TARGET        = 175
 
 Execute all cells to generate the predictive distribution plot and quantitative output report.
 
+From the above conditions and example output is included below:
+
+```python
+point_pred             = get_prediction(pipeline, state)
+pred_dist, cond_resids = build_prediction_distribution(point_pred, state, residuals, balls_left_test)
+metrics                = compute_metrics(pred_dist, state['target'], cond_resids)
+
+plot_distribution(pred_dist, point_pred, state, metrics)
+```
+
+![model-distribution-plot](image.png)
+
+```python
+print_betting_report(point_pred, state, metrics)
+```
+
+════════════════════════════════════════════════════
+  BETTING INSIGHTS REPORT
+  Mumbai Indians  chasing 175
+════════════════════════════════════════════════════
+
+  PREDICTION
+  Point estimate    : 161 runs
+  Median (P50)      : 162 runs
+  80% range         : 141 – 180 runs
+  50% range (IQR)   : 155 – 169 runs
+  Model uncertainty : ± 12.0 runs  (cond. MAE at 66 balls left)
+
+  WIN PROBABILITY
+  Chase success     : 14.7%
+  Fall short        : 85.3%
+  Implied odds (w/l): 6.80  /  1.17
+  Within ±5 of line : 12.9%  (close finish risk)
+
+  RUNS MARKET BREAKDOWN
+  Under 155             25.4%  ███████
+  155–174               59.9%  █████████████████
+  175–194               11.9%  ███
+  Over 194               2.8%  
+
+  MOMENTUM
+  Current RR        : 8.00
+  Required RR       : 9.36
+  Differential      : -1.36
+  Assessment        : 🟠  Negative — bowling has the edge
+
+  RISK STATEMENT
+    No major risk flags at this stage
+
+════════════════════════════════════════════════════
+
+
 ---
 
 ## Limitations & Caveats
