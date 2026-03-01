@@ -115,7 +115,7 @@ point_pred             = get_prediction(pipeline, state)
 pred_dist, cond_resids = build_prediction_distribution(point_pred, state, residuals, balls_left_test)
 metrics                = compute_metrics(pred_dist, state['target'], cond_resids)
 
-plot_distribution(pred_dist, point_pred, state, metrics)
+plot_distribution(pred_dist, point_pred, state, metrics, save_path='assets/sample_distribution.png')
 ```
 
 ![Predictive Distribution](assets/sample_distribution.png)

@@ -209,7 +209,7 @@ def momentum_label(current_rr: float, required_rr: float) -> str:
 # ── Plotting ───────────────────────────────────────────────────────────────────
 
 def plot_distribution(pred_dist: np.ndarray, point_pred: float,
-                      state: dict, metrics: dict) -> None:
+                      state: dict, metrics: dict, save_path=None) -> None:
     """
     Plot the KDE predictive distribution with annotated zones,
     credible interval, target line, and prediction line.
@@ -268,6 +268,8 @@ def plot_distribution(pred_dist: np.ndarray, point_pred: float,
 
     ax.legend(frameon=True, framealpha=0.15, edgecolor=C['GRID'],
               labelcolor=C['TEXT'], fontsize=9, loc='upper left')
+    if save_path:
+        plt.savefig(save_path, dpi=160, bbox_inches='tight', facecolor=STYLE['BG'])
     plt.show()
 
 
